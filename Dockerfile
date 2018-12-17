@@ -1,16 +1,17 @@
-FROM ubuntu
+FROM python:3.7-alpine3.8
 
 WORKDIR /home/afh
 
-RUN apt-get update && apt-get install -y apt-transport-https ca-certificates python3-pip python3-dev build-essential imagemagick wget unzip git curl
+RUN apk update && apk add imagemagick wget unzip git curl vim
 RUN pip3 install selenium requests pysocks urllib3 --upgrade
 
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+# https://github.com/joyzoursky/docker-python-chromedriver/blob/master/py3/py3.7-alpine3.8/Dockerfile
+# update apk repo
+RUN echo "http://dl-4.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories && \
+    echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
 
-RUN apt-get update && apt-get install -y google-chrome-stable
-
-RUN wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip && unzip chromedriver_linux64.zip && cp chromedriver /usr/local/bin
-ENV PATH=/usr/local/bin/chromedriver:$PATH
+# install chromedriver
+RUN apk update
+RUN apk add chromium chromium-chromedriver
 
 CMD ["/bin/sh"]
