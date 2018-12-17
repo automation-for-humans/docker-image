@@ -2,7 +2,7 @@ FROM python:3.7-alpine3.8
 
 WORKDIR /home/afh
 
-RUN apk update && apk add imagemagick wget unzip git curl vim
+RUN apk update && apk add imagemagick wget unzip git curl vim openssh ca-certificates
 RUN pip3 install selenium requests pysocks urllib3 --upgrade
 
 # https://github.com/joyzoursky/docker-python-chromedriver/blob/master/py3/py3.7-alpine3.8/Dockerfile
