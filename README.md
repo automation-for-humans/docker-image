@@ -1,6 +1,6 @@
 <div align="center">
 
-    <img src="afh-docker.svg" />
+    <img src="afh-docker.svg" height="200"/>
 
     <h1>docker-for-humans</h1>
     <img src="https://img.shields.io/docker/stars/rohithr31/automation-for-humans.svg" />
