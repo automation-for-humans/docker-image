@@ -7,11 +7,10 @@
     <img src="https://img.shields.io/docker/pulls/rohithr31/automation-for-humans.svg" />
 
     <p>
-        The docker image for [automation-for-humans].
+        The docker image for
+        <a href="https://github.com/intuit/automation-for-humans">automation-for-humans</a>.
     </p>
 
     Available at : https://cloud.docker.com/repository/docker/rohithr31/automation-for-humans
 
 </div>
-
-[automation-for-humans]: https://github.com/intuit/automation-for-humans
